@@ -1,11 +1,14 @@
 class PortfoliosController < ApplicationController
 	# before action, goes through and calls set blog method for the following methods inside the brackets
-  	before_action :set_portfolio, only: [:edit, :update]
+  	before_action :set_portfolio, only: [:show, :edit, :update]
 
 
 	def index
 		@portfolio_items = Portfolio.all
 	end
+
+	def show
+  	end
 
 	# create new method that makes a new Portfolio
 	def new
