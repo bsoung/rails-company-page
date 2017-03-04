@@ -40,8 +40,8 @@ puts "5 skills created"
 		body: "This file is auto-generated from the current state of the database. Instead
 			of editing this file, please use the migrations feature of Active Record to
 			incrementally modify your database, and then regenerate this schema definition.",
-		main_image: "https://http://placehold.it/600x400",
-		thumb_image: "https://http://placehold.it/350x200"
+		main_image: "http://placehold.it/600x400",
+		thumb_image: "http://placehold.it/350x200"
 	)
 end
 
