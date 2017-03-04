@@ -1,6 +1,6 @@
 class PortfoliosController < ApplicationController
 	# before action, goes through and calls set blog method for the following methods inside the brackets
-  	before_action :set_portfolio, only: [:show, :edit, :update]
+  	before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
 
 	def index
@@ -43,6 +43,17 @@ class PortfoliosController < ApplicationController
 				format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
 			end
     	end
+ 	end
+
+ 	# no need to create a destroy template
+ 	def destroy
+ 		@portfolio_item.destroy
+
+ 		# needs to redirect after destroying
+	    respond_to do |format|
+	      format.html { redirect_to portfolios_path, notice: 'Record was removed.' }
+	      format.json { head :no_content }
+	    end
  	end
 
   	private 
