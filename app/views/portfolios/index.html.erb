@@ -1,8 +1,15 @@
 <h1>Portfolio Items</h1>
 
+<!-- we need _path at the end because they attach to prefixes. You can either have _path or _url -->
+
+<!-- _url is important when you need to pass a second option for subdomain: -->
+<%= link_to "Create New Item", new_portfolio_path %>
+
+<!-- pass in portfolio_item for edit_portfolio and access its id -->
 <% @portfolio_items.each do |portfolio_item| %>
 	<p><%= portfolio_item.title %></p>
 	<p><%= portfolio_item.subtitle %></p>
 	<p><%= portfolio_item.body %></p>
 	<img src=<%= portfolio_item.thumb_image %>></img>
+	<%= link_to "Edit", edit_portfolio_path(portfolio_item.id) %>
 <% end %>
