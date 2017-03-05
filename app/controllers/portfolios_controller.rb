@@ -15,8 +15,6 @@ class PortfoliosController < ApplicationController
   		@angular_portfolio_items = Portfolio.angular
   	end
 
-
-
 	# create new method that makes a new Portfolio
 	def new
 		@portfolio_item = Portfolio.new

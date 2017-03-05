@@ -1,5 +1,12 @@
 class Portfolio < ApplicationRecord
 	has_many :technologies
+
+	# nested attributes, encapsulating a lamda process that says do not accept this if attrs name is blank
+	# when testing on console, refer to technologies_attributes - strict name!
+	# technologies_attributes: [{name: 'wef'}, {name: 'wefw'}, {name: 'ewf'}]    <-- notice you must pass in an array containg hashes
+	accepts_nested_attributes_for :technologies, 
+	reject_if: lambda { |attrs| attrs['name'].blank? }
+
 	include Placeholder
 
 	validates_presence_of :title, :body, :main_image, :thumb_image
