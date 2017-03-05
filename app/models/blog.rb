@@ -5,5 +5,8 @@ class Blog < ApplicationRecord
   	friendly_id :title, use: :slugged
 
   	# validator
-  	validate_presence_of :title, :body
+  	validates_presence_of :title, :body
+
+  	# tell blog that it belongs to a topic (after generating migration)
+  	belongs_to :topic
 end
