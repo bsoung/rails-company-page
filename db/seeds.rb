@@ -6,6 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+3.times do |topic|
+	Topic.create!(
+		title: "#{topic}"
+	)
+end
+
+puts "3 topics created"
+
 # run 10 times
 10.times do |blog|
 	Blog.create!(
@@ -17,7 +25,8 @@
 			database schema. If you need to create the application database on another
 			system, you should be using db:schema:load, not running all the migrations
 			from scratch. The latter is a flawed and unsustainable approach (the more migrations
-			you'll amass, the slower it'll run and the greater likelihood for issues)."
+			you'll amass, the slower it'll run and the greater likelihood for issues).",
+		topic_id: Topic.last.id
 
 	)
 end
@@ -33,10 +42,22 @@ end
 
 puts "5 skills created"
 
-9.times do |portfolio_item|
+8.times do |portfolio_item|
 	Portfolio.create!(
 		title: "Portfolio title: #{portfolio_item}",
-		subtitle: "My great service",
+		subtitle: "Ruby on Rails",
+		body: "This file is auto-generated from the current state of the database. Instead
+			of editing this file, please use the migrations feature of Active Record to
+			incrementally modify your database, and then regenerate this schema definition.",
+		main_image: "http://placehold.it/600x400",
+		thumb_image: "http://placehold.it/350x200"
+	)
+end
+
+1.times do |portfolio_item|
+	Portfolio.create!(
+		title: "Portfolio title: #{portfolio_item}",
+		subtitle: "Angular",
 		body: "This file is auto-generated from the current state of the database. Instead
 			of editing this file, please use the migrations feature of Active Record to
 			incrementally modify your database, and then regenerate this schema definition.",
