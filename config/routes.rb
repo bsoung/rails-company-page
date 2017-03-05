@@ -8,8 +8,11 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'pages#contact'
 
-  resources :blogs
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :blogs do
+  	member do
+  		get :toggle_status
+  	end
+  end
 
   # setting the root path i.e home page
   root to: 'pages#home'
