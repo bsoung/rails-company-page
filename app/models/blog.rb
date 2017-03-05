@@ -3,4 +3,10 @@ class Blog < ApplicationRecord
 	enum status: {draft: 0, published: 1}
 	extend FriendlyId
   	friendly_id :title, use: :slugged
+
+  	# validator
+  	validates_presence_of :title, :body
+
+  	# tell blog that it belongs to a topic (after generating migration)
+  	belongs_to :topic
 end

@@ -2,17 +2,27 @@ class PortfoliosController < ApplicationController
 	# before action, goes through and calls set blog method for the following methods inside the brackets
   	before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
-
 	def index
+		# @portfolio_items = Portfolio.all
+		# check portfolio model for custom scopes
 		@portfolio_items = Portfolio.all
 	end
 
 	def show
   	end
 
+  	# custom scope example 
+  	def angular
+  		@angular_portfolio_items = Portfolio.angular
+  	end
+
 	# create new method that makes a new Portfolio
+	# here is where we generated our form elements
 	def new
 		@portfolio_item = Portfolio.new
+
+		# build is going to instantiate 3 versions of this portfolio item with technologies
+		3.times { @portfolio_item.technologies.build }
 	end
 
 	def create
@@ -61,7 +71,8 @@ class PortfoliosController < ApplicationController
       		@portfolio_item = Portfolio.find(params[:id])
     	end
 
+    	# update params to show the nested attributes, then go to our portfolio views and update teh new form
 	  	def portfolio_params
-	      params.require(:portfolio).permit(:title, :subtitle, :body)
+	      params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name])
 	    end
 end
