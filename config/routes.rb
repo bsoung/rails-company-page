@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  # customize path for devise
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
   # ignoring default :show route and passing custom show, and as: adds that prefix we can use for links
   resources :portfolios, except: [:show]
