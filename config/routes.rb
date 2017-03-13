@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  
   # ignoring default :show route and passing custom show, and as: adds that prefix we can use for links
   resources :portfolios, except: [:show]
 
