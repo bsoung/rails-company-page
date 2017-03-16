@@ -9,12 +9,12 @@ class PortfoliosController < ApplicationController
 	end
 
 	def show
-  	end
+  end
 
-  	# custom scope example 
-  	def angular
-  		@angular_portfolio_items = Portfolio.angular
-  	end
+	# custom scope example 
+	def angular
+		@angular_portfolio_items = Portfolio.angular
+	end
 
 	# create new method that makes a new Portfolio
 	# here is where we generated our form elements
@@ -26,33 +26,33 @@ class PortfoliosController < ApplicationController
 	end
 
 	def create
-	    @portfolio_item = Portfolio.new(portfolio_params)
+    @portfolio_item = Portfolio.new(portfolio_params)
 
-	    respond_to do |format|
-			if @portfolio_item.save
-				format.html { redirect_to portfolios_path, notice: 'Your portfolio item is now live.' }
-				format.json { render :show, status: :created, location: @portfolio_item }
-			else
-				format.html { render :new }
-				format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
-			end
-    	end
+    respond_to do |format|
+		if @portfolio_item.save
+			format.html { redirect_to portfolios_path, notice: 'Your portfolio item is now live.' }
+			format.json { render :show, status: :created, location: @portfolio_item }
+		else
+			format.html { render :new }
+			format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
+		end
   	end
+	end
 
-  	# grab the id
-  	def edit
+	# grab the id
+	def edit
+	end
+
+	def update
+  	respond_to do |format|
+		if @portfolio_item.update(portfolio_params)
+			format.html { redirect_to portfolios_path, notice: 'The record was successfully updated.' }
+			format.json { render :show, status: :ok, location: @portfolio_item }
+		else
+			format.html { render :edit }
+			format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
+		end
   	end
-
-  	def update
-    	respond_to do |format|
-			if @portfolio_item.update(portfolio_params)
-				format.html { redirect_to portfolios_path, notice: 'The record was successfully updated.' }
-				format.json { render :show, status: :ok, location: @portfolio_item }
-			else
-				format.html { render :edit }
-				format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
-			end
-    	end
  	end
 
  	# no need to create a destroy template
@@ -66,13 +66,13 @@ class PortfoliosController < ApplicationController
 	    end
  	end
 
-  	private 
-  		def set_portfolio
-      		@portfolio_item = Portfolio.find(params[:id])
-    	end
+	private 
+		def set_portfolio
+    		@portfolio_item = Portfolio.find(params[:id])
+  	end
 
-    	# update params to show the nested attributes, then go to our portfolio views and update teh new form
-	  	def portfolio_params
-	      params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name])
-	    end
+  	# update params to show the nested attributes, then go to our portfolio views and update teh new form
+  	def portfolio_params
+      params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name])
+    end
 end

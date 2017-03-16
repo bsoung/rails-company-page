@@ -7,11 +7,13 @@
 <p><%= @portfolio_item.body %></p>
 
 <!-- implementationt to show nested categories -->
-<h2>Technologies Used</h2>
+<h2>Technologies Used:</h2>
 
 <% @portfolio_item.technologies.each do |t| %>
 	<p><%= t.name %></p>
 <% end %>
+
+
 
 
 
