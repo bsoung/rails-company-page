@@ -15,7 +15,6 @@
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-
 <!--     if unsure route, use rake routes | grep logout  -->
    <!--  is_a? checks to make sure it's a User class from User model -->
 		<% if current_user.is_a?(User) %>
@@ -28,7 +27,7 @@
 <!--     yield contains whatever content loads in after all the universal stuff above -->
     <%= yield %>
 
-    <%= render "shared/nav" %>
+    <%= render "shared/nav", location: 'bottom' %>
 
     <% if session[:source] %>
       <p>Thanks for visiting me from <%= session[:source] %>!</p>

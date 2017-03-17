@@ -1,3 +1,7 @@
 /*if this main css is applying stylesheets universally
 delete the 'tree .' stuff and everything*/
 
+.top a {
+	color: green;
+	text-decoration: none;
+}

@@ -27,7 +27,6 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
-
     # instantiates a new blog, an instance of Blog
     @blog = Blog.new
   end

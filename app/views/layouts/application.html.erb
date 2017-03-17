@@ -14,7 +14,8 @@
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= render "shared/nav" %>
+   <!--  check the nav partial for location variable -->
+    <%= render "shared/nav", location: 'top' %>
 
 <!--     if unsure route, use rake routes | grep logout  -->
    <!--  is_a? checks to make sure it's a User class from User model -->
