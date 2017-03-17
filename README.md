@@ -1,24 +1,21 @@
-# README
+# Xiang Horse (Rails Refactor)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Xiang Horse is a Beijing-based startup focusing on creating products and services that are environmentally sustainable. They have worked with the local government of Inner Mongolia to improve the grassland's conditions. This is a on-going project to refactor their website from static HTML to Rails by utilizing Ruby and Javascript.
 
-Things you may want to cover:
+## Motivation
 
-* Ruby version
+* Clean, modern UI for a good user experience. 
+* Fully functional blogging platform with real time comments.
+* A drag and drop portfolio section for greater flexibility. 
 
-* System dependencies
+## Technologies
 
-* Configuration
+* Rails
+* Postgresql
+* Redis
+* JQuery
+* Coffee Script
+* Action Cable
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Contributers
+* bsoung
