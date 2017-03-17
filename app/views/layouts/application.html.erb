@@ -13,7 +13,8 @@
     <p class="alert"><%= alert %></p>
 
 <!--     if unsure route, use rake routes | grep logout  -->
-		<% if current_user %>
+   <!--  is_a? checks to make sure it's a User class from User model -->
+		<% if current_user.is_a?(User) %>
     	<%= link_to "Logout", destroy_user_session_path, method: :delete %> 
     <% else %>
     	<%= link_to "Register", new_user_registration_path %> 
