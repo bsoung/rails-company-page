@@ -1,7 +1,8 @@
 class PortfoliosController < ApplicationController
 	# before action, goes through and calls set blog method for the following methods inside the brackets
   	before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
-
+  	layout "portfolio"
+  	
 	def index
 		# @portfolio_items = Portfolio.all
 		# check portfolio model for custom scopes

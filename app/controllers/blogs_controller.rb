@@ -3,6 +3,9 @@ class BlogsController < ApplicationController
   # before action, goes through and calls set blog method for the following methods inside the brackets
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
+  # references the file in our view called blog
+  layout "blog"
+
   # GET /blogs
   # GET /blogs.json
   def index
