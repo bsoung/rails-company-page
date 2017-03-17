@@ -4,7 +4,6 @@ class PortfoliosController < ApplicationController
   	layout "portfolio"
   	
 	def index
-		# @portfolio_items = Portfolio.all
 		# check portfolio model for custom scopes
 		@portfolio_items = Portfolio.all
 	end
