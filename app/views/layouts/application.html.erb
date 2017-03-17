@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CompanyPage</title>
+    <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
+
+    <META name="keywords" content="<%= @seo_keywords %>" />
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +13,14 @@
   <body>
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <div>
+      <div><%= link_to "Home", root_path %></div>
+      <div><%= link_to "About", about_path %></div>
+      <div><%= link_to "Contact", contact_path %></div>
+      <div><%= link_to "Portfolio", portfolios_path %></div>
+      <div><%= link_to "Blog", blogs_path %></div>
+    </div>
 
 <!--     if unsure route, use rake routes | grep logout  -->
    <!--  is_a? checks to make sure it's a User class from User model -->
@@ -21,6 +31,7 @@
     	<%= link_to "Login", new_user_session_path %> 
     <% end %>
 
+<!--     yield contains whatever content loads in after all the universal stuff above -->
     <%= yield %>
 
     <% if session[:source] %>

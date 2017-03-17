@@ -6,14 +6,20 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-
     # call all of the blogs from the db
     @blogs = Blog.all 
+
+    # customize title for each different page
+    @page_title = "Xiang Ma | Company Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    # we have access to instance variables because of before action
+    # sets individual blog post titles to our website title when navigating to blog post
+    @page_title = @blog.title
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new
