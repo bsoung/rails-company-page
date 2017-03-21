@@ -14,21 +14,26 @@
   </head>
 
   <body>
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  	<div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
 
-    <!--  check the nav partial for location variable -->
-    <%= render "shared/nav", location: 'top' %>
+          <!--  check the nav partial for location variable -->
+          <%= render "shared/application_nav" %>
 
-    <!--   if unsure route, use rake routes | grep logout  -->
-    <!--  is_a? checks to make sure it's a User class from User model -->
-    <%= login_helper %>
+          <!--   if unsure route, use rake routes | grep logout  -->
+          <!--  is_a? checks to make sure it's a User class from User model -->
+          <%= login_helper %>
 
-    <!--     yield contains whatever content loads in after all the universal stuff above -->
-    <%= yield %>
+          <!--     yield contains whatever content loads in after all the universal stuff above -->
+          <%= yield %>
 
-    <%= copyright_generator %>
+          <%= copyright_generator %>
 
-    <%= source_helper("application") %>
+          <%= source_helper("application") %>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>
