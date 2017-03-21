@@ -3,7 +3,7 @@ module DeviseWhitelist
 
 	included do 
 		# run this method only if you receive some type of devise controller communication
-		before_filter :configure_permitted_parameters, if: :devise_controller?
+		before_action :configure_permitted_parameters, if: :devise_controller?
 	end
 
 	def configure_permitted_parameters
