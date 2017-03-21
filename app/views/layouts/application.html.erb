@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
 
@@ -14,19 +17,18 @@
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-   <!--  check the nav partial for location variable -->
+    <!--  check the nav partial for location variable -->
     <%= render "shared/nav", location: 'top' %>
 
-<!--     if unsure route, use rake routes | grep logout  -->
-   <!--  is_a? checks to make sure it's a User class from User model -->
-   <%= login_helper %>
+    <!--   if unsure route, use rake routes | grep logout  -->
+    <!--  is_a? checks to make sure it's a User class from User model -->
+    <%= login_helper %>
 
-<!--     yield contains whatever content loads in after all the universal stuff above -->
+    <!--     yield contains whatever content loads in after all the universal stuff above -->
     <%= yield %>
 
     <%= copyright_generator %>
 
     <%= source_helper("application") %>
-
   </body>
 </html>
