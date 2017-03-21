@@ -6,6 +6,9 @@ class BlogsController < ApplicationController
   # references the file in our view called blog
   layout "blog"
 
+  # petergate gem config - related to our user.rb
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :edit]}, site_admin: :all
+
   # GET /blogs
   # GET /blogs.json
   def index

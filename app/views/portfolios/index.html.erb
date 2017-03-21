@@ -3,7 +3,7 @@
 <!-- we need _path at the end because they attach to prefixes. You can either have _path or _url -->
 
 <!-- _url is important when you need to pass a second option for subdomain: -->
-<%= link_to "Create New Item", new_portfolio_path %>
+<%= link_to "Create New Item", new_portfolio_path if logged_in?(:site_admin) %>
 
 <!-- pass in portfolio_item for edit_portfolio and access its id -->
 

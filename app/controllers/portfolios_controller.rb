@@ -2,6 +2,9 @@ class PortfoliosController < ApplicationController
 	# before action, goes through and calls set blog method for the following methods inside the brackets
   	before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   	layout "portfolio"
+
+  # petergate gem config - related to our user.rb
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :edit]}, site_admin: :all
   	
 	def index
 		# check portfolio model for custom scopes
