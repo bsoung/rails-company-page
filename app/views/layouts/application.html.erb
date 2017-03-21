@@ -18,17 +18,13 @@
       <div class="site-wrapper-inner">
         <div class="cover-container">
 
-          <!--  check the nav partial for location variable -->
+          <!-- check the nav partial for location variable -->
           <%= render "shared/application_nav" %>
 
-          <!--   if unsure route, use rake routes | grep logout  -->
-          <!--  is_a? checks to make sure it's a User class from User model -->
-          <%= login_helper %>
-
-          <!--     yield contains whatever content loads in after all the universal stuff above -->
+          <!-- yield contains whatever content loads in after all the universal stuff above -->
           <%= yield %>
 
-          <%= copyright_generator %>
+          <%= render "shared/application_footer" %>
 
           <%= source_helper("application") %>
 
