@@ -2,7 +2,7 @@ module ApplicationHelper
 	# refactor logic in our views into appropriate helper files
   # if unsure route, use rake routes | grep logout  
   # is_a? checks to make sure it's a User class from User model 
-	def login_helper style
+	def login_helper style = ''
 		if current_user.is_a?(GuestUser) 
     	(link_to "Register", new_user_registration_path, class: style) + 
     	" ".html_safe + 
