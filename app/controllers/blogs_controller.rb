@@ -13,7 +13,8 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     # call all of the blogs from the db
-    @blogs = Blog.all 
+    # pagination implemented via kaminari gem
+    @blogs = Blog.page(params[:page]).per(5)
 
     # customize title for each different page
     @page_title = "Xiang Ma | Company Blog"
