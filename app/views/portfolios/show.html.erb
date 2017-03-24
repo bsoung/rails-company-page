@@ -1,17 +1,37 @@
-<img src=<%= @portfolio_item.main_image %>></img>
+<div class="container">
+	<div class="row">
+		<div class="col-md-7">
+			<img src=<%= @portfolio_item.main_image %>></img>
+		</div>
 
-<h1><%= @portfolio_item.title %></h1>
+		<div class="col-md-5">
+			<h1><%= @portfolio_item.title %></h1>
 
-<em><%= @portfolio_item.subtitle %></em>
+			<hr>
 
-<p><%= @portfolio_item.body %></p>
+			<em><%= @portfolio_item.subtitle %></em>
 
-<!-- implementationt to show nested categories -->
-<h2>Technologies Used:</h2>
+			<p><%= @portfolio_item.body %></p>
 
-<% @portfolio_item.technologies.each do |t| %>
-	<p><%= t.name %></p>
-<% end %>
+			<hr>
+
+			<!-- implementationt to show nested categories -->
+			<h3>Technologies Used:</h3>
+
+			<% @portfolio_item.technologies.each do |t| %>
+				<p><%= t.name %></p>
+			<% end %>
+
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
 
 
 
