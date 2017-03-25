@@ -52,16 +52,17 @@ module ApplicationHelper
 		nav_links = ''
 
 		nav_items.each do |item|
-			nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+			nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{onPage? item[:url], 'active'}'>#{item[:title]}</a></#{tag_type}>"
 		end
 
 		nav_links.html_safe
 	end
 
 	# current_page? is a special method in rails - return "active" if the current page matches whatever path we passed in
-	def active? path
-		"active" if current_page? path
+	def onPage? path, style
+		style if current_page? path
 	end
+
 end
 
 

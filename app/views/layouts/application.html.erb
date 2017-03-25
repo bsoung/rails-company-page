@@ -14,7 +14,7 @@
   </head>
 
   <body>
-  	<div class="site-wrapper">
+  	<div class="site-wrapper <%= onPage? root_path, 'bg-landing-animation' %>">
       <div class="site-wrapper-inner">
         <div class="cover-container">
 
@@ -25,6 +25,8 @@
           <%= yield %>
 
           <%= render "shared/application_footer" %>
+
+
 
           <%= source_helper "application" %>
 
