@@ -8,7 +8,8 @@ class PortfoliosController < ApplicationController
   	
 	def index
 		# check portfolio model for custom scopes
-		@portfolio_items = Portfolio.all
+		# ".by_position" is the custome scope made in the portfolio model
+		@portfolio_items = Portfolio.by_position
 	end
 
 	def show
