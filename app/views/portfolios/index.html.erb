@@ -1,7 +1,8 @@
 <div class="album text-muted">
   <div class="container">
 
-    <div class="row">
+  	<!-- jquery sortable class -->
+    <div class="row sortable">
     	<%= render partial: 'portfolio_item', collection: @portfolio_items %>
     </div>
 
@@ -11,7 +12,6 @@
 
 <!-- we need _path at the end because they attach to prefixes. You can either have _path or _url -->
 <!-- _url is important when you need to pass a second option for subdomain: -->
-
 
 
 <!-- pass in portfolio_item for portfolio_path, which means the show operation, and access its id -->
