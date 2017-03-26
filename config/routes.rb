@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
   # ignoring default :show route and passing custom show, and as: adds that prefix we can use for links
-  resources :portfolios, except: [:show]
+  resources :portfolios, except: [:show] do
+
+    # whenever you see portfolios/sort, then i want u to go do something else
+    put :sort, on: :collection
+  end
 
   get 'angular-items', to: 'portfolios#angular'
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'

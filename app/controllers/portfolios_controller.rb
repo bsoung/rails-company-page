@@ -4,11 +4,23 @@ class PortfoliosController < ApplicationController
   	layout "portfolio"
 
   # petergate gem config - related to our user.rb
-  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :edit]}, site_admin: :all
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :edit, :sort]}, site_admin: :all
   	
 	def index
 		# check portfolio model for custom scopes
-		@portfolio_items = Portfolio.all
+		# ".by_position" is the custome scope made in the portfolio model
+		@portfolio_items = Portfolio.by_position
+	end
+
+	# a controller action by default is going to go look for a view
+	# we don't want that - we just want to do something with the sorted cards
+	def sort
+		params[:order].each do |key, value|
+			Portfolio.find(value[:id]).update(position: value[:position])
+		end
+
+		# bypass traditional rails process to look for views
+		head :ok
 	end
 
 	def show
