@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
   	layout "portfolio"
 
   # petergate gem config - related to our user.rb
-  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :edit]}, site_admin: :all
+  access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :edit, :sort]}, site_admin: :all
   	
 	def index
 		# check portfolio model for custom scopes
