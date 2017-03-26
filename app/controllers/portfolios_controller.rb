@@ -12,6 +12,17 @@ class PortfoliosController < ApplicationController
 		@portfolio_items = Portfolio.by_position
 	end
 
+	# a controller action by default is going to go look for a view
+	# we don't want that - we just want to do something with the sorted cards
+	def sort
+		params[:order].each do |key, value|
+			Portfolio.find(value[:id]).update(position: value[:position])
+		end
+
+		# bypass traditional rails process to look for views
+		head :ok
+	end
+
 	def show
   end
 
